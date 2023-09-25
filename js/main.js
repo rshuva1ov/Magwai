@@ -1,31 +1,34 @@
-new WOW().init();
-
+// Menu
 
 const menuBtn = document.querySelector('.menu__btn');
 const menu = document.querySelector('.menu');
 
 menuBtn.addEventListener('click', () => {
-  menu.classList.toggle('active');
-  menuBtn.classList.toggle('active');
+    menu.classList.toggle('active');
+    menuBtn.classList.toggle('active');
 })
+
+// Show cards
 
 const moreBtn = document.querySelector('.more__btn');
 const cardsShow = document.querySelector('.cards__show');
 
 moreBtn.addEventListener('click', () => {
-  cardsShow.style.display = 'grid';
-  moreBtn.style.display = 'none';
+    cardsShow.style.display = 'grid';
+    moreBtn.style.display = 'none';
 })
 
-async function getResponse() {
-  let responce = await fetch('https://jsonplaceholder.typicode.com/posts')
-  let content = await responce.json()
-  content = content.splice(0, 5)
-  let key;
+// Ajax
 
-  for (key in content) {
-    cardsShow.innerHTML +=
-      `
+async function getResponse() {
+    let responce = await fetch('https://jsonplaceholder.typicode.com/posts')
+    let content = await responce.json()
+    content = content.splice(0, 5)
+    let key;
+
+    for (key in content) {
+        cardsShow.innerHTML +=
+        `
         <div class="card">
             <div class="card__image" style="background-image: url('img/cards/card-1.png');"></div>
             <div class="item">
@@ -37,7 +40,7 @@ async function getResponse() {
             </div>
         </div>
         `
-  }
+    }
 }
 
 getResponse()

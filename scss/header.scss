@@ -39,8 +39,6 @@
       }
 
       .logo {
-        --animate-duration: 1s;
-
         @media (max-width: 425px) {
           width: 112px;
           height: 38px;
@@ -52,7 +50,6 @@
         flex-direction: column;
         gap: 5px;
         width: 30px;
-        --animate-duration: 2s;
 
         span {
           background-color: $white;
@@ -230,7 +227,6 @@
       display: flex;
       align-items: center;
       gap: 20px;
-      --animate-duration: 2s;
 
 
       &__call {

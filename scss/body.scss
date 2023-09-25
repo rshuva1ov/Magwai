@@ -51,7 +51,7 @@
           gap: 40px;
           max-width: 668px;
           width: 100%;
-          --animate-duration: 1.5s;
+
 
           @media (max-width: 1024px) {
             max-width: 478px;
@@ -153,7 +153,6 @@
         line-height: normal;
         text-transform: uppercase;
         margin-bottom: 53px;
-        --animate-duration: 1.5s;
 
         @media (max-width: 425px) {
           font-size: 20px;
@@ -166,7 +165,6 @@
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         grid-gap: 30px;
         margin-bottom: 60px;
-        --animate-duration: 1.5s;
 
         .card {
           background-color: $white;

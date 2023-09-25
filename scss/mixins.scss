@@ -37,32 +37,3 @@
   }
 }
 
-@mixin fadeInDownLinks {
-  &:nth-child(1) {
-    --animate-duration: 0.5s;
-  }
-
-  &:nth-child(2) {
-    --animate-duration: 1s;
-  }
-
-  &:nth-child(3) {
-    --animate-duration: 1.5s;
-  }
-
-  &:nth-child(4) {
-    --animate-duration: 2s;
-  }
-
-  &:nth-child(5) {
-    --animate-duration: 2.5s;
-  }
-
-  &:nth-child(6) {
-    --animate-duration: 3s;
-  }
-
-  &:nth-child(7) {
-    --animate-duration: 3.5s;
-  }
-}
