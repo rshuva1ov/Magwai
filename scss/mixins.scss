@@ -1,0 +1,68 @@
+@mixin mainBtn {
+  background-color: $brown;
+  color: $white;
+  height: 60px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  padding: 21px 78px;
+  transform: skew(-20deg);
+  position: relative;
+
+  span {
+    display: block;
+    transform: skew(20deg);
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    background-color: $white;
+    height: 60px;
+    width: 8px;
+    top: 0;
+    right: -14px;
+    transition: 0.3s ease;
+  }
+
+  &:hover {
+    background-color: $white;
+    color: $black;
+
+    &::after {
+      background-color: $brown;
+    }
+
+  }
+}
+
+@mixin fadeInDownLinks {
+  &:nth-child(1) {
+    --animate-duration: 0.5s;
+  }
+
+  &:nth-child(2) {
+    --animate-duration: 1s;
+  }
+
+  &:nth-child(3) {
+    --animate-duration: 1.5s;
+  }
+
+  &:nth-child(4) {
+    --animate-duration: 2s;
+  }
+
+  &:nth-child(5) {
+    --animate-duration: 2.5s;
+  }
+
+  &:nth-child(6) {
+    --animate-duration: 3s;
+  }
+
+  &:nth-child(7) {
+    --animate-duration: 3.5s;
+  }
+}
