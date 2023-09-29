@@ -754,14 +754,49 @@ body {
 }
 
 .main .section__cards .cards__list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  grid-gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
   margin-bottom: 60px;
 }
 
 .main .section__cards .cards__list .card {
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20.5px
+}
+
+@media (min-width: 1800px) {
+  .main .section__cards .cards__list .card {
+    width: calc(20% - 30px);
+    margin: 15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main .section__cards .cards__list .card {
+    width: calc(33.3333333333% - 20px);
+    margin: 10px;
+  }
+}
+
+@media (min-width: 576px) {
+  .main .section__cards .cards__list .card {
+    width: calc(50% - 20px);
+    margin: 12px 10px;
+  }
+}
+
+
+@media (min-width: 1400px) {
+  .main .section__cards .cards__list .card {
+    width: calc(25% - 20px);
+    margin: 10px;
+  }
+}
+
+.item__bottom {
+  margin-top: auto;
 }
 
 .main .section__cards .cards__list .card__image {
@@ -774,6 +809,9 @@ body {
 
 .main .section__cards .cards__list .card .item {
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .main .section__cards .cards__list .card .item__title {
