@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
@@ -16,6 +17,7 @@
 </head>
 
 <body>
+
   <header class="header">
     <div class="container">
       <nav class="header__nav">
@@ -44,7 +46,7 @@
                   <use xlink:href="#carbon_phone-filled"></use>
                 </svg>
               </button>
-              <button class="callback__btn">
+              <button class="callback__btn" href="#callbackModal" data-toggle="modal">
                 <span>ОСТАВИТЬ ЗАЯВКУ</span>
               </button>
             </div>
@@ -56,7 +58,7 @@
               <use xlink:href="#carbon_phone-filled"></use>
             </svg>
           </button>
-          <button class="callback__btn">
+          <button class="callback__btn" href="#callbackModal" data-toggle="modal">
             <span>ОСТАВИТЬ ЗАЯВКУ</span>
           </button>
         </div>
@@ -71,7 +73,7 @@
           <div class="banner">
             <h1 class="banner__title">Полет Илона Маска и DOGIE COIN</h1>
             <p class="banner__text">В прошлый четверг все офигели от полета DOGIE COIN на марс.</p>
-            <button class="banner__btn">
+            <button class="banner__btn" href="#callbackModal" data-toggle="modal">
               <span>ОСТАВИТЬ ЗАЯВКУ</span>
             </button>
           </div>
@@ -249,12 +251,32 @@
       </div>
     </section>
   </main>
+
+  <section class="modal modal-callback modal-shown1" id="callbackModal">
+    <h6 class="modal-callback__title">Оставить заявку</h6>
+    <p class="modal-callback__description">Заполните все поля для отправки заявки</p>
+    <form class="modal-callback__form" action="/" method="post">
+      <div class="modal-callback__element-wrapper"><label class="visually-hidden" for="name">Ваше имя</label><input
+          class="modal-callback__input" id="name" type="text" name="name" placeholder="Ваше имя"></div>
+      <div class="modal-callback__element-wrapper"><label class="visually-hidden" for="phone">Номер
+          телефона</label><input class="modal-callback__input" id="phone" type="text" name="phone"
+          placeholder="Номер телефона"></div>
+      <div class="modal-callback__element-wrapper"><label class="custom-checkbox-label"><input type="checkbox" class="checkbox"><span
+            class="checkmark"></span><span class="modal-callback__agreement">Я согласен с ополитикой обработки <a
+              href="#"> "Персональных данных" </a></span></label></div><button class="modal-callback__modal-submit btn"
+        type="submit">Отправить</button>
+    </form><button class="modal-callback__modal-close modal-close-btn" type="button">Закрыть</button>
+  </section>
+  <div class="overlay-modal"></div>
+
   <footer class="footer">
     <div class="container">
       <p class="copyright">copyright ©</p>
     </div>
   </footer>
+
   <script src="js/main.js"></script>
+
   <svg width="0" height="0" class="hidden" style="display: none;">
     <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 157 60" id="logo">
       <path
@@ -306,6 +328,7 @@
         fill="white"></path>
     </symbol>
   </svg>
+
 </body>
 
 </html>

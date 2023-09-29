@@ -1,3 +1,5 @@
+'use strict'
+
 // Menu
 
 const menuBtn = document.querySelector('.menu__btn');
@@ -9,33 +11,6 @@ menuBtn.addEventListener('click', () => {
 })
 
 // Show cards
-
-// Ajax
-
-// async function getResponse() {
-//     let responce = await fetch('https://jsonplaceholder.typicode.com/posts')
-//     let content = await responce.json()
-//     content = content.splice(0, 5)
-//     let key;
-
-//     for (key in content) {
-//         cardsShow.innerHTML +=
-//         `
-//         <div class="card">
-//             <div class="card__image" style="background-image: url('img/cards/card-1.png');"></div>
-//             <div class="item">
-//                 <h4 class="item__title">${content[key].title}</h4>
-//                 <h5 class="item__subtitle">How to increase your productivity with a Music</h5>
-//                 <p class="item__description">${content[key].body}</p>
-//                 <p class="item__data">Posted by <span>Eugenia</span>, on July  24, 2019</p>
-//                 <button class="item__btn">Continue reading</button>
-//             </div>
-//         </div>
-//         `
-//     }
-// }
-
-// getResponse()
 
 let cardCount = 0;
 const authors = ["James", "John", "Robert", "Michael", "William", "David", "Richard", "Charles", "Paul", "Mark"];
@@ -90,3 +65,104 @@ function fetchDataAndInsertCards() {
 
 
 moreBtn.addEventListener('click', fetchDataAndInsertCards);
+
+const overlayModal = document.querySelector('.overlay-modal')
+
+function openModal(modalId) {
+  let modal = document.querySelector(modalId);
+  if (modal) {
+    modal.classList.add('modal-shown');
+    overlayModal.classList.add('overlay-modal--active');
+  }
+}
+
+function closeModal() {
+  const modal = document.querySelector('.modal-callback');
+  if (modal) {
+    modal.classList.remove('modal-shown');
+    overlayModal.classList.remove('overlay-modal--active');
+  }
+}
+
+function handleModalToggle(event) {
+  const target = event.target;
+  const modalToggle = target.closest('[data-toggle="modal"]');
+
+  if (modalToggle) {
+    event.preventDefault();
+
+    const modalId = modalToggle.getAttribute('href');
+    if (modalId) {
+      openModal(modalId);
+    }
+  }
+}
+
+function handleModalClose(event) {
+  let target = event.target;
+  let closeButton = target.closest('.modal-close-btn');
+  let overlayModal = target.closest('.overlay-modal--active');
+
+  if (closeButton || overlayModal) {
+    closeModal();
+  }
+}
+
+document.addEventListener('click', handleModalToggle);
+document.addEventListener('click', handleModalClose);
+
+const form = document.querySelector('.modal-callback__form');
+const nameInput = form.querySelector('.modal-callback__input#name');
+const phoneInput = form.querySelector('.modal-callback__input#phone');
+const checkboxInput = form.querySelector('input[type="checkbox"]')
+const submitButton = form.querySelector('.modal-callback__modal-submit');
+
+
+function isValidPhoneNumber(phoneNumber) {
+  const phoneRegex = /^\d+$/;
+  return phoneRegex.test(phoneNumber);
+}
+
+
+function validateForm() {
+  const nameValue = nameInput.value.trim();
+  const phoneValue = phoneInput.value.trim();
+
+  const isNameValid = nameValue !== '';
+  const isPhoneValid = isValidPhoneNumber(phoneValue);
+  const isCheckboxChecked = checkboxInput.checked;
+
+  if (isNameValid && isPhoneValid && isCheckboxChecked) {
+    submitButton.disabled = false;
+    submitButton.classList.remove('disabled');
+  } else {
+    submitButton.disabled = true;
+    submitButton.classList.add('disabled');
+  }
+
+  if (!isNameValid) {
+    nameInput.classList.add('invalid');
+  } else {
+    nameInput.classList.remove('invalid');
+  }
+
+  if (!isPhoneValid) {
+    phoneInput.classList.add('invalid');
+  } else {
+    phoneInput.classList.remove('invalid');
+  }
+}
+
+nameInput.addEventListener('input', validateForm);
+phoneInput.addEventListener('input', validateForm);
+checkboxInput.addEventListener('change', validateForm);
+
+form.addEventListener('submit', function (event) {
+  validateForm();
+
+  if (!submitButton.disabled) {
+    return;
+  }
+
+  event.preventDefault();
+});
